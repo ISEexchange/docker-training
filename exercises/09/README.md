@@ -57,7 +57,7 @@ Builder image
 1. *Copy* the built binary out of the container:
 
     ```
-    core@host:~$ docker cp ${HANDLE}_hello:/src/hello .
+    core@host:~$ docker cp ${HANDLE}_hello_builder:/src/hello .
     ```
 
 
