@@ -103,7 +103,7 @@ Alpine Apache Server
 1. *Edit* a Dockerfile that contains:
 
     ```
-    FROM alpine:3.2
+    FROM alpine:3.3
 
     ENV packages="apache2"
 

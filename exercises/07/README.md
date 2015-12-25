@@ -34,7 +34,7 @@ Host volumes
 1. *Run* a container with volume mounts:
 
     ```
-    core@host:~$ docker run --rm -it --read-only --name ${HANDLE}_volumes -v $(pwd)/${HANDLE}_config:/configs:ro -v $(pwd)/${HANDLE}_data:/data:rw alpine:3.2 sh
+    core@host:~$ docker run --rm -it --read-only --name ${HANDLE}_volumes -v $(pwd)/${HANDLE}_config:/configs:ro -v $(pwd)/${HANDLE}_data:/data:rw alpine:3.3 sh
     / # cat /configs/github.conf 
     me=jumanjiman
 
@@ -61,7 +61,7 @@ Data containers
 1. *Create* a simple data container:
 
     ```
-    core@host:~$ docker create -v /data --name ${HANDLE}_data alpine:3.2 true
+    core@host:~$ docker create -v /data --name ${HANDLE}_data alpine:3.3 true
     -snip-
 
     core@host:~$ docker ps -af name=${HANDLE}_data
@@ -74,13 +74,13 @@ Data containers
 1. Look inside the data container:
 
     ```
-    core@host:~$ docker run --rm -it --volumes-from ${HANDLE}_data alpine:3.2 ls /data
+    core@host:~$ docker run --rm -it --volumes-from ${HANDLE}_data alpine:3.3 ls /data
     ```
 
 1. Add a file to the data container:
 
     ```
-    core@host:~$ docker run --rm -it --volumes-from ${HANDLE}_data alpine:3.2 sh
+    core@host:~$ docker run --rm -it --volumes-from ${HANDLE}_data alpine:3.3 sh
     / # echo foo > /data/bar
     / # exit
     ```
@@ -88,10 +88,10 @@ Data containers
 1. Look inside the data container:
 
     ```
-    core@host:~$ docker run --rm -it --volumes-from ${HANDLE}_data alpine:3.2 ls /data
+    core@host:~$ docker run --rm -it --volumes-from ${HANDLE}_data alpine:3.3 ls /data
     /data/bar
 
-    core@host:~$ docker run --rm -it --volumes-from ${HANDLE}_data alpine:3.2 cat /data/bar
+    core@host:~$ docker run --rm -it --volumes-from ${HANDLE}_data alpine:3.3 cat /data/bar
     foo
     ```
 

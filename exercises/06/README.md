@@ -16,7 +16,7 @@ Container basics
 1. *Run* your first container and look around:
 
     ```
-    user@devenv:~$ docker run -it --name ${HANDLE}_first alpine:3.2 sh
+    user@devenv:~$ docker run -it --name ${HANDLE}_first alpine:3.3 sh
     / # du -lshx /
     328.0K  /
 
@@ -39,7 +39,7 @@ Container basics
 1. *Run* a second container, this time with a *read-only* root filesystem:
 
     ```
-    user@devenv:~$ docker run -it --read-only --name ${HANDLE}_second alpine:3.2 sh
+    user@devenv:~$ docker run -it --read-only --name ${HANDLE}_second alpine:3.3 sh
     / # touch blah
     touch: blah: Read-only file system
 
@@ -49,7 +49,7 @@ Container basics
 1. *Run* a third container, this time in *detached* mode:
 
     ```
-    user@devenv:~$ docker run -d --read-only --name ${HANDLE}_third alpine:3.2 sh -c 'while true; do echo blah; sleep 1; done'
+    user@devenv:~$ docker run -d --read-only --name ${HANDLE}_third alpine:3.3 sh -c 'while true; do echo blah; sleep 1; done'
     f84cb8dbac4e50822cd19b424f3c8a5c9b1a0501e89ee27b80c3f3dced7556ae
     ```
 
@@ -58,7 +58,7 @@ Container basics
     ```
     user@devenv:~$ docker ps
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-    f84cb8dbac4e        alpine:3.2          "sh -c 'while true; d"   51 seconds ago      Up 51 seconds                           jumanjiman_third
+    f84cb8dbac4e        alpine:3.3          "sh -c 'while true; d"   51 seconds ago      Up 51 seconds                           jumanjiman_third
     ```
 
 1. View the *logs* of your running container:
@@ -119,9 +119,9 @@ Container basics
     ```
     user@devenv:~$ docker ps -a
     CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS                     PORTS               NAMES
-    f84cb8dbac4e        alpine:3.2          "sh -c 'while true; d"   About a minute ago   Up About a minute                              jumanjiman_third
-    d3b2ac044020        alpine:3.2          "sh"                     4 minutes ago        Exited (0) 4 minutes ago                       jumanjiman_second
-    83e7a817612e        alpine:3.2          "sh"                     4 minutes ago        Exited (0) 4 minutes ago                       jumanjiman_first
+    f84cb8dbac4e        alpine:3.3          "sh -c 'while true; d"   About a minute ago   Up About a minute                              jumanjiman_third
+    d3b2ac044020        alpine:3.3          "sh"                     4 minutes ago        Exited (0) 4 minutes ago                       jumanjiman_second
+    83e7a817612e        alpine:3.3          "sh"                     4 minutes ago        Exited (0) 4 minutes ago                       jumanjiman_first
     ```
 
 1. View *stopped* containers:
@@ -129,8 +129,8 @@ Container basics
     ```
     user@devenv:~$ docker ps -f status=exited
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
-    d3b2ac044020        alpine:3.2          "sh"                4 minutes ago       Exited (0) 4 minutes ago                       jumanjiman_second
-    83e7a817612e        alpine:3.2          "sh"                5 minutes ago       Exited (0) 4 minutes ago                       jumanjiman_first
+    d3b2ac044020        alpine:3.3          "sh"                4 minutes ago       Exited (0) 4 minutes ago                       jumanjiman_second
+    83e7a817612e        alpine:3.3          "sh"                5 minutes ago       Exited (0) 4 minutes ago                       jumanjiman_first
     ```
 
 1. *Stop* your running container:
@@ -152,9 +152,9 @@ Container basics
     ```
     user@devenv:~$ docker ps -af name=${HANDLE}*
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                       PORTS               NAMES
-    11bbdecff85f        alpine:3.2          "sh -c 'while true; d"   5 minutes ago       Exited (137) 5 minutes ago                       jumanjiman_third
-    d3b2ac044020        alpine:3.2          "sh"                     14 minutes ago      Exited (0) 14 minutes ago                        jumanjiman_second
-    83e7a817612e        alpine:3.2          "sh"                     15 minutes ago      Exited (0) 15 minutes ago                        jumanjiman_first
+    11bbdecff85f        alpine:3.3          "sh -c 'while true; d"   5 minutes ago       Exited (137) 5 minutes ago                       jumanjiman_third
+    d3b2ac044020        alpine:3.3          "sh"                     14 minutes ago      Exited (0) 14 minutes ago                        jumanjiman_second
+    83e7a817612e        alpine:3.3          "sh"                     15 minutes ago      Exited (0) 15 minutes ago                        jumanjiman_first
     ```
 
 1. Do the same thing *quietly*:
@@ -178,7 +178,7 @@ Container basics
 1. For one-off containers, *remove* the container on exit:
 
     ```
-    user@devenv:~$ docker run --rm -it --name ${HANDLE}_rm_on_exit alpine:3.2 cat /etc/os-release
+    user@devenv:~$ docker run --rm -it --name ${HANDLE}_rm_on_exit alpine:3.3 cat /etc/os-release
     NAME="Alpine Linux"
     ID=alpine
     VERSION_ID=3.2.0

@@ -22,7 +22,7 @@ Shorter example:
 
 Shortest example:
 
-    alpine:3.2
+    alpine:3.3
 
 
 Visualization
@@ -38,7 +38,7 @@ CLI
 1. Pull a tagged image that you saw on Docker Hub. Examples:
 
     ```
-    user@devenv:~$ docker pull alpine:3.2
+    user@devenv:~$ docker pull alpine:3.3
     user@devenv:~$ docker pull fedora:21
     user@devenv:~$ docker pull jumanjiman/caddy:latest
     ```

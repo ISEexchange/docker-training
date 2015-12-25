@@ -26,7 +26,7 @@ Builder image
 1. *Edit* `Dockerfile.build` that contains:
 
     ```
-    FROM alpine:3.2
+    FROM alpine:3.3
 
     # Work around ISE network access.
     ENV http_proxy=http://proxy2.inf.ise.com:3128
